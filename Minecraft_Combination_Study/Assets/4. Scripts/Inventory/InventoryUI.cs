@@ -5,7 +5,7 @@ using UnityEngine;
 public class InventoryUI : MonoBehaviour
 {
     public GameObject inventory;
-    
+
     [HideInInspector]
     public bool activeInventory = false;
 

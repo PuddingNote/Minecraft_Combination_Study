@@ -15,4 +15,4 @@ MonoBehaviour:
   itemId: 4
   itemType: 1
   stackable: 0
-  itemImage: {fileID: 0}
+  itemImage: {fileID: 21300000, guid: aa7d04730ec5ac04ab52076aeebaf076, type: 3}
