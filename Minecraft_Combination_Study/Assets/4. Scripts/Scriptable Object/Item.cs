@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(fileName = "Item", menuName = "Scriptable object/Items", order = int.MaxValue)]
 public class Item : ScriptableObject
@@ -15,5 +14,6 @@ public class Item : ScriptableObject
 public enum ItemType
 {
     Material,
+    SubComplete,
     Complete
 }

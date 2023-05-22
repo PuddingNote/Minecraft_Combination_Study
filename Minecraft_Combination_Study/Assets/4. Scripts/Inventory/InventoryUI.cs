@@ -5,6 +5,7 @@ using UnityEngine;
 public class InventoryUI : MonoBehaviour
 {
     public GameObject inventory;
+    public GameObject combination;
 
     [HideInInspector]
     public bool activeInventory = false;
@@ -12,6 +13,7 @@ public class InventoryUI : MonoBehaviour
     private void Start()
     {
         inventory.SetActive(activeInventory);
+        combination.SetActive(activeInventory);
     }
 
     private void Update()
@@ -20,6 +22,7 @@ public class InventoryUI : MonoBehaviour
         {
             activeInventory = !activeInventory;
             inventory.SetActive(activeInventory);
+            combination.SetActive(activeInventory);
         }
     }
 
