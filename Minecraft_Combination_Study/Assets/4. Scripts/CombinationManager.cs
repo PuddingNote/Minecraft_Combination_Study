@@ -67,6 +67,7 @@ public class CombinationManager : MonoBehaviour
             {
                 // 결과물슬롯 변화
                 // 결과물슬롯의 자식오브젝트에 recipe.outpt의 InventoryItem을 추가
+                // 결과물슬롯의 아이템을 드래그 앤 드랍 하면 현재 조합대에있는 아이템들 삭제
                 break;
             }
             else
