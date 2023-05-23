@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour, IDropHandler
+public class ItemSlot : MonoBehaviour, IDropHandler
 {
-    public Image image;
+    public Item currItem;
+
+    // ItemSlot의 currItem에 자식오브젝트로있는 InventoryItem의 정보를 가져와야함
+
 
     public void OnDrop(PointerEventData eventData)
     {

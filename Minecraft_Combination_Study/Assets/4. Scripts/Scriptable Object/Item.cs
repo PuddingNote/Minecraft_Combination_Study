@@ -6,14 +6,5 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     public int itemId;
-    public ItemType itemType;
-    public bool stackable = false;
     public Sprite itemImage;
-}
-
-public enum ItemType
-{
-    Material,
-    SubComplete,
-    Complete
 }

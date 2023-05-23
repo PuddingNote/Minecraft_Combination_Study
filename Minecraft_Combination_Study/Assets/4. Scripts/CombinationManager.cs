@@ -4,73 +4,76 @@ using UnityEngine;
 
 public class CombinationManager : MonoBehaviour
 {
-    public InventorySlot[] topRow;
-    public InventorySlot[] midRow;
-    public InventorySlot[] bottomRow;
+    public ItemSlot[] topRow = new ItemSlot[3];
+    public ItemSlot[] midRow = new ItemSlot[3];
+    public ItemSlot[] bottomRow = new ItemSlot[3];
 
-    private List<InventorySlot[]> allSlots = new List<InventorySlot[]>();
+    public ItemSlot outputSlot;
 
-    public InventorySlot outputSlot;
+    private List<ItemSlot[]> allSlots = new List<ItemSlot[]>();
 
-    private List<Recipe> recipes = new List<Recipe>();
+    public List<Recipe> recipes = new List<Recipe>();
 
     private void Awake()
     {
+        allSlots.Add(topRow);
+        allSlots.Add(midRow);
+        allSlots.Add(bottomRow);
+
         recipes.AddRange(Resources.LoadAll<Recipe>("Recipes/"));
     }
 
-    void Update()
+    private void Update()
     {
-        //foreach (Recipe recipe in recipes)
-        //{
-        //    bool correctPlacement = true;
+        foreach (Recipe recipe in recipes)
+        {
+            bool correctPlacement = true;
 
-        //    List<Item[]> allRecipeSlots = new List<Item[]>();
-        //    allRecipeSlots.Add(recipe.topRow);
-        //    allRecipeSlots.Add(recipe.midRow);
-        //    allRecipeSlots.Add(recipe.bottomRow);
+            List<Item[]> allRecipeSlots = new List<Item[]>();
+            allRecipeSlots.Add(recipe.topRow);
+            allRecipeSlots.Add(recipe.midRow);
+            allRecipeSlots.Add(recipe.bottomRow);
 
-        //    for (int i = 0; i < 3; i++)
-        //    {
-        //        for (int n = 0; n < allRecipeSlots[i].Length; n++)
-        //        {
-        //            if (allRecipeSlots[i][n] != null)
-        //            {
-        //                if (allSlots[i][n].currItem != null)
-        //                {
-        //                    if (allRecipeSlots[i][n].itemId != allSlots[i][n].currItem.itemId)
-        //                    {
-        //                        correctPlacement = false;
-        //                    }
-        //                }
-        //                else
-        //                {
-        //                    correctPlacement = false;
-        //                }
-        //            }
-        //            else
-        //            {
-        //                if (allSlots[i][n].currItem != null)
-        //                {
-        //                    correctPlacement = false;
-        //                    continue;
-        //                }
-        //            }
-        //        }
-        //    }
+            for (int i = 0; i < 3; i++)
+            {
+                for (int n = 0; n < allRecipeSlots[i].Length; n++)
+                {
+                    if (allRecipeSlots[i][n] != null)
+                    {
+                        if (allSlots[i][n].currItem != null)
+                        {
+                            if (allRecipeSlots[i][n].itemId != allSlots[i][n].currItem.itemId)
+                            {
+                                correctPlacement = false;
+                            }
+                        }
+                        else
+                        {
+                            correctPlacement = false;
+                        }
+                    }
+                    else
+                    {
+                        if (allSlots[i][n].currItem != null)
+                        {
+                            correctPlacement = false;
+                            continue;
+                        }
+                    }
+                }
+            }
 
-        //    if (correctPlacement)
-        //    {
-        //        outputSlot.currItem = recipe.output;
-        //        outputSlot.UpdateSlotData();
-        //        break;
-        //    }
-        //    else
-        //    {
-        //        outputSlot.currItem = null;
-        //        outputSlot.UpdateSlotData();
-        //    }
-        //}
+            if (correctPlacement)
+            {
+                // 결과물슬롯 변화
+                // 결과물슬롯의 자식오브젝트에 recipe.outpt의 InventoryItem을 추가
+                break;
+            }
+            else
+            {
+                // 결과물슬롯 변화 없음
+            }
+        }
     }
 
 }
