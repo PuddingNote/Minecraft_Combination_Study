@@ -1357,7 +1357,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2aa1cfec7317144098f1955cf7066c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStackItems: 5
   inventorySlots:
   - {fileID: 1194327529}
   - {fileID: 851754672}
@@ -1911,6 +1910,7 @@ MonoBehaviour:
   - {fileID: 216717915}
   - {fileID: 2093393202}
   outputSlot: {fileID: 56777342}
+  recipes: []
 --- !u!1 &555608250
 GameObject:
   m_ObjectHideFlags: 0
